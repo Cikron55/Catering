@@ -42,4 +42,15 @@ public class Menu implements Propuesta{
     public boolean incluye(String nombreServicio) {
         return propuestas.stream().anyMatch(p -> p.incluye(nombreServicio));
     }
+
+    public void agregar(Propuesta propuesta) {
+        propuestas.add(propuesta);
+    }
+
+    public void quitar(Propuesta propuesta) {
+        if (!propuestas.contains(propuesta)) {
+            throw new PropuestaNoIncluidaException("La propuesta no se encuntra en este menu.");
+        }
+        propuestas.remove(propuesta);
+    }
 }

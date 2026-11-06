@@ -32,4 +32,11 @@ public class Servicio implements Propuesta{
     public boolean incluye(String nombreServicio) {
         return this.nombre.equals(nombreServicio);
     }
+
+    public void actualizarPrecio(Double nuevoPrecio) {
+        if (nuevoPrecio < 0) {
+            throw new PrecioNegativoException("El precio no puede ser negativo: " + nuevoPrecio);
+        }
+        this.precio = nuevoPrecio;
+    }
 }
