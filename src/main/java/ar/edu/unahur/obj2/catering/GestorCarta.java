@@ -2,11 +2,7 @@ package ar.edu.unahur.obj2.catering;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.List;
 
-/**
- * GestorCarta
- */
 public class GestorCarta {
 
     private final Deque<Modificacion> historial = new ArrayDeque<>();

@@ -1,8 +1,5 @@
 package ar.edu.unahur.obj2.catering;
 
-/**
- * ActualizarPrecioServicio
- */
 public class ActualizarPrecioServicio implements  Modificacion{
     private final Servicio servicio;
     private final Double nuevoPrecio;

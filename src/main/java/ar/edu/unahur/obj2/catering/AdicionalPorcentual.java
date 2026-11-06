@@ -1,8 +1,5 @@
 package ar.edu.unahur.obj2.catering;
 
-/**
- * AdicionalPorcentual
- */
 public class AdicionalPorcentual extends PropuestaDecorator{
     private final String nombreAdicional;
     private final Double porcentaje;
@@ -22,5 +19,4 @@ public class AdicionalPorcentual extends PropuestaDecorator{
     public String descripcion() {
         return propuestaDecorada.descripcion() + " + " + nombreAdicional;
     }
-
 }

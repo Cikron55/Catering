@@ -1,8 +1,5 @@
 package ar.edu.unahur.obj2.catering;
 
-/**
- * Contrato
- */
 public class Contrato {
     private final String nombreCliente;
     private final Double importeFijado;
@@ -26,5 +23,4 @@ public class Contrato {
     public String getdescripcionFijada() {
         return descripcionFijada;
     }
-
 }

@@ -1,8 +1,5 @@
 package ar.edu.unahur.obj2.catering;
 
-/**
- * AdicionalMontoFijo
- */
 public class AdicionalMontoFijo extends PropuestaDecorator{
     private final String nombreAdicional;
     private final Double montoAdicional;
@@ -22,5 +19,4 @@ public class AdicionalMontoFijo extends PropuestaDecorator{
     public String descripcion() {
         return propuestaDecorada.descripcion() + " + " + nombreAdicional;
     }
-
 }

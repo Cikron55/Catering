@@ -1,8 +1,5 @@
 package ar.edu.unahur.obj2.catering;
 
-/**
- * QuitarPropuestaDeMenu
- */
 public class QuitarPropuestaDeMenu implements Modificacion{
     private final Menu menu;
     private final Propuesta propuestaAQuitar;
@@ -21,5 +18,4 @@ public class QuitarPropuestaDeMenu implements Modificacion{
     public void revertir() {
         menu.agregar(propuestaAQuitar);
     }
-
 }

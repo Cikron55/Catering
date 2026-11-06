@@ -1,8 +1,5 @@
 package ar.edu.unahur.obj2.catering;
 
-/**
- * AgregarPropuestaAMenu
- */
 public class AgregarPropuestaAMenu implements Modificacion{
     private final Menu menu;
     private final Propuesta propuestaAAgregar;

@@ -3,9 +3,6 @@ package ar.edu.unahur.obj2.catering;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Menu
- */
 public class Menu implements Propuesta{
     private final String nombre;
     private final Double descuentoPorcentaje;
