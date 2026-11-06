@@ -1,6 +1,7 @@
 package ar.edu.unahur.obj2.catering;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ public class GestionTest {
     private GestorCarta gestor = new GestorCarta();
 
     @Test
-    public void dadaUnaSecuenciaInmediataYReversiones_actualizaYDeshaceCorrectamente() {
+    public void dadaUnaActualizacionDePrecio_alRevertirla_devuelveElPrecioAnterior() {
 
         assertEquals(342_000.0, menuParrillero.precio(), 0.01);
 
@@ -30,5 +31,16 @@ public class GestionTest {
 
         gestor.revertir();
         assertEquals(342_000.0, menuParrillero.precio(), 0.01);
+    }
+
+    @Test
+    public void dadoUnLoteConUnaModificacionInvalida_alAplicarlo_dejaElCatalogoComoEstaba() {
+        assertEquals(240_000.0, parrillada.precio(), 0.01);
+
+        List<Modificacion> loteConError = List.of(new ActualizarPrecioServicio(parrillada, 260_000.0),new QuitarPropuestaDeMenu(menuParrillero, barraTragos));
+
+        assertThrows(PropuestaNoIncluidaException.class, () -> {gestor.aplicarLote(loteConError);});
+
+        assertEquals(240_000.0, parrillada.precio(), 0.01);
     }
 }

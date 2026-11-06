@@ -2,6 +2,7 @@ package ar.edu.unahur.obj2.catering;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.List;
 
 public class GestorCarta {
 
@@ -18,5 +19,23 @@ public class GestorCarta {
         }
         Modificacion ultima = historial.pop();
         ultima.revertir();
+    }
+
+    public void aplicarLote(List<Modificacion> lote) {
+        Deque<Modificacion> aplicadasEnLote = new ArrayDeque<>();
+        try {
+            for (Modificacion mod : lote) {
+                mod.ejecutar();
+                aplicadasEnLote.push(mod);
+            }
+            while (!aplicadasEnLote.isEmpty()) {
+                historial.push(aplicadasEnLote.pollLast());
+            }
+        } catch (RuntimeException e) {
+            while (!aplicadasEnLote.isEmpty()) {
+                aplicadasEnLote.pop().revertir();
+            }
+            throw e;
+        }
     }
 }
